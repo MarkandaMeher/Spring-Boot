@@ -1,0 +1,41 @@
+package com.tutorial.controller;
+
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+
+@Controller
+public class MyController {
+	
+	@GetMapping("/about")
+	public String about(Model model) {
+		System.out.println("Inside about hendler....");
+		
+		model.addAttribute("name","Piyush Meher");
+		model.addAttribute("date",new Date());
+		
+		return "about";
+		//this is about.html
+	}
+	
+	@GetMapping("/iterate")
+	public String iterate(Model m) {
+		
+		List<String> list = List.of("Ankit","Meher","Piyush","Ashok");
+		m.addAttribute("list",list);
+		
+		return "iterate";
+	}
+	
+	@GetMapping("/condition")
+	public String condition(Model m) {
+		m.addAttribute("isActive",true);
+		return "condition";
+	}
+
+}

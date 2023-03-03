@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>Conditional Example</title>
+</head>
+<body>
+
+<h1>Conditional Example</h1>
+<h1>User is <span th:text="${isActive} ? 'ACTIVE' : 'NOT ACTIVE' "></span></h1>
+	
+</body>
+</html>

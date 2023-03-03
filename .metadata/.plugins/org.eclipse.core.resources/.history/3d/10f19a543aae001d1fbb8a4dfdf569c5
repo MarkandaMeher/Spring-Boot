@@ -1,0 +1,23 @@
+package com.springboot.jpa;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.context.ApplicationContext;
+
+import com.springboot.jpa.dao.UserRepository;
+import com.springboot.jpa.entities.User;
+
+@SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
+public class SpringJpaApplication {
+
+	public static void main(String[] args) {
+		ApplicationContext context = SpringApplication.run(SpringJpaApplication.class, args);
+		UserRepository bean = context.getBean(UserRepository.class);
+		
+		User u1 = new User(1,"Ram","Mohan");
+		User save = bean.save(u1);
+		System.out.println(save);
+	}
+
+}
